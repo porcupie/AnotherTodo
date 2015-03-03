@@ -10,13 +10,17 @@
 
 @interface TodoDocument : UIDocument
 
-// UIDocument has fileURL and localizedName
-@property NSString *friendlyName;
+// UIDocument has fileURL and localizedName and documentName already - do we need another?
+//@property NSString *friendlyName;
 
-// do we need to temp store the string data from file?
-@property (nonatomic, strong) NSString* documentText;
+// do we need to temp store the data from file?
+@property (nonatomic, strong) NSData* documentData;
 
 // keep a list of todoItems
-@property NSMutableArray *todoItems;
+// FIXME: does this need to also be (nonatomic, strong) ?
+@property (nonatomic, strong) NSMutableArray *todoItems;
+
+
++ (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError **)outError;
 
 @end
