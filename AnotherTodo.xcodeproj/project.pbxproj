@@ -16,6 +16,8 @@
 		2DAD4C5C1AA624E200F496C3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DAD4C5A1AA624E200F496C3 /* LaunchScreen.xib */; };
 		2DAD4C681AA624E200F496C3 /* AnotherTodoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C671AA624E200F496C3 /* AnotherTodoTests.m */; };
 		2DAD4C721AA62ADC00F496C3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C711AA62ADC00F496C3 /* README.md */; };
+		2DAD4C751AA66F4200F496C3 /* TodoDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C741AA66F4200F496C3 /* TodoDocument.m */; };
+		2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C771AA6704300F496C3 /* TodoItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		2DAD4C661AA624E200F496C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DAD4C671AA624E200F496C3 /* AnotherTodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnotherTodoTests.m; sourceTree = "<group>"; };
 		2DAD4C711AA62ADC00F496C3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2DAD4C731AA66F4200F496C3 /* TodoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDocument.h; sourceTree = "<group>"; };
+		2DAD4C741AA66F4200F496C3 /* TodoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocument.m; sourceTree = "<group>"; };
+		2DAD4C761AA6704300F496C3 /* TodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoItem.h; sourceTree = "<group>"; };
+		2DAD4C771AA6704300F496C3 /* TodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,10 @@
 				2DAD4C711AA62ADC00F496C3 /* README.md */,
 				2DAD4C521AA624E100F496C3 /* DetailViewController.h */,
 				2DAD4C531AA624E100F496C3 /* DetailViewController.m */,
+				2DAD4C731AA66F4200F496C3 /* TodoDocument.h */,
+				2DAD4C761AA6704300F496C3 /* TodoItem.h */,
+				2DAD4C771AA6704300F496C3 /* TodoItem.m */,
+				2DAD4C741AA66F4200F496C3 /* TodoDocument.m */,
 				2DAD4C551AA624E200F496C3 /* Main.storyboard */,
 				2DAD4C581AA624E200F496C3 /* Images.xcassets */,
 				2DAD4C5A1AA624E200F496C3 /* LaunchScreen.xib */,
@@ -229,9 +239,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DAD4C4E1AA624E100F496C3 /* AppDelegate.m in Sources */,
+				2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */,
 				2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */,
 				2DAD4C721AA62ADC00F496C3 /* README.md in Sources */,
 				2DAD4C4B1AA624E100F496C3 /* main.m in Sources */,
+				2DAD4C751AA66F4200F496C3 /* TodoDocument.m in Sources */,
 				2DAD4C541AA624E100F496C3 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
