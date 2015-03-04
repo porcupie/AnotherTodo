@@ -9,13 +9,18 @@
 #import "TodoDocument.h"
 #import "TodoItem.h"
 
-// TodoDocumen
+// TodoDocument
 // Data storage: json plain text, array of hashes, each hash a TodoItem
 // [{}, ...]
 
 @implementation TodoDocument
 
-// loading data happens in this method
+static NSString *FILE_TYPE = @"todoitems";
+static NSString *EMPTY_JSON = @"[]";
+// ERROR: "Initializer element is not a compile-time constant"
+//static NSData *EMPTY_DATA = [EMPTY_JSON dataUsingEncoding:NSUTF8StringEncoding];
+
+// loading document data happens in this callback
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     // check if any data exists
     if ([contents length] > 0) {
@@ -24,11 +29,20 @@
         self.documentData = (NSData*)contents;
     } else {
         // empty document is empty array
-        self.documentData = [@"[]" dataUsingEncoding:NSUTF8StringEncoding];
+        self.documentData = [EMPTY_JSON dataUsingEncoding:NSUTF8StringEncoding];
     }
     // now - how should we convert JSON -> NSArray? ...
     // and does that happen here or in another callback?
+    self.todoItems = [TodoDocument todoItemsFromDocumentData:self.documentData error:outError];
     
+    if (outError != nil) {
+        return NO;
+    }
+    
+    // FIXME: notify a delegate ??
+    // if ([_delegate respondsToSelector:@selector(noteDocumentContentsUpdated:)]) {
+    //     [_delegate noteDocumentContentsUpdated:self];
+    // }
     return YES;
 }
 
@@ -66,5 +80,46 @@
     }
     return convertedItems;
 }
+
+
+/*
+ When a document is closed or when it is automatically saved, UIDocument sends 
+ the document object a contentsForType:error: message. You must override this 
+ method to return a snapshot of the document’s data to UIDocument, which then 
+ writes it to the document file
+ */
+// return a snapshot of document data for storage
+- (id)contentsForType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
+    self.documentData = [TodoDocument dataFromTodoItems:self.todoItems error:outError];
+    
+    return self.documentData;
+}
+
+
+// use a class method to encapsulate conversion -> to JSON data
++ (NSData *)dataFromTodoItems:(NSArray*)items error:(NSError **)outError {
+    if ([items count] > 0) {
+        // gather the items into an array of dicts
+        // TODO: do i need to convert these items or can json serialize my NSObject subclass?
+        //for (TodoItem *todoItem in self.todoItems) {
+        //}
+        NSError *jsError;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:items options:NSJSONWritingPrettyPrinted error:&jsError];
+        
+        if (jsError != nil) {
+            *outError = jsError;
+            NSLog(@"%@", [jsError localizedDescription]);
+            return nil;
+        }
+        else {
+            return jsonData;
+        }
+    }
+    else {
+        // if no items, then empty document
+        return [EMPTY_JSON dataUsingEncoding:NSUTF8StringEncoding];
+    }
+}
+
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TodoDocument : UIDocument
+@interface TodoDocument : UIDocument 
 
 // UIDocument has fileURL and localizedName and documentName already - do we need another?
 //@property NSString *friendlyName;

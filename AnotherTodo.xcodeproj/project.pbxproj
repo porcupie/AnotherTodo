@@ -18,6 +18,7 @@
 		2DAD4C721AA62ADC00F496C3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C711AA62ADC00F496C3 /* README.md */; };
 		2DAD4C751AA66F4200F496C3 /* TodoDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C741AA66F4200F496C3 /* TodoDocument.m */; };
 		2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C771AA6704300F496C3 /* TodoItem.m */; };
+		2DAD4C7A1AA67FC300F496C3 /* TodoDocumentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C791AA67FC300F496C3 /* TodoDocumentTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2DAD4C741AA66F4200F496C3 /* TodoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocument.m; sourceTree = "<group>"; };
 		2DAD4C761AA6704300F496C3 /* TodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoItem.h; sourceTree = "<group>"; };
 		2DAD4C771AA6704300F496C3 /* TodoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoItem.m; sourceTree = "<group>"; };
+		2DAD4C791AA67FC300F496C3 /* TodoDocumentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocumentTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAD4C671AA624E200F496C3 /* AnotherTodoTests.m */,
+				2DAD4C791AA67FC300F496C3 /* TodoDocumentTests.m */,
 				2DAD4C651AA624E200F496C3 /* Supporting Files */,
 			);
 			path = AnotherTodoTests;
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DAD4C7A1AA67FC300F496C3 /* TodoDocumentTests.m in Sources */,
 				2DAD4C681AA624E200F496C3 /* AnotherTodoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
