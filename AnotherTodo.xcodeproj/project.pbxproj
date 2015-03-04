@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DA8DC071AA7BA1800F0ED9A /* TodoDocumentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */; };
 		2DAD4C4B1AA624E100F496C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C4A1AA624E100F496C3 /* main.m */; };
 		2DAD4C4E1AA624E100F496C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C4D1AA624E100F496C3 /* AppDelegate.m */; };
 		2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C501AA624E100F496C3 /* MasterViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DA8DC051AA7BA1800F0ED9A /* TodoDocumentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDocumentTableViewController.h; sourceTree = "<group>"; };
+		2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocumentTableViewController.m; sourceTree = "<group>"; };
 		2DAD4C451AA624E100F496C3 /* AnotherTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnotherTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAD4C491AA624E100F496C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DAD4C4A1AA624E100F496C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,16 +102,18 @@
 				2DAD4C581AA624E200F496C3 /* Images.xcassets */,
 				2DAD4C4C1AA624E100F496C3 /* AppDelegate.h */,
 				2DAD4C4D1AA624E100F496C3 /* AppDelegate.m */,
+				2DA8DC051AA7BA1800F0ED9A /* TodoDocumentTableViewController.h */,
+				2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */,
 				2DAD4C521AA624E100F496C3 /* DetailViewController.h */,
 				2DAD4C531AA624E100F496C3 /* DetailViewController.m */,
 				2DAD4C4F1AA624E100F496C3 /* MasterViewController.h */,
 				2DAD4C501AA624E100F496C3 /* MasterViewController.m */,
 				2DAD4C711AA62ADC00F496C3 /* README.md */,
-				2DAD4C481AA624E100F496C3 /* Supporting Files */,
 				2DAD4C731AA66F4200F496C3 /* TodoDocument.h */,
 				2DAD4C741AA66F4200F496C3 /* TodoDocument.m */,
 				2DAD4C761AA6704300F496C3 /* TodoItem.h */,
 				2DAD4C771AA6704300F496C3 /* TodoItem.m */,
+				2DAD4C481AA624E100F496C3 /* Supporting Files */,
 			);
 			path = AnotherTodo;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA8DC071AA7BA1800F0ED9A /* TodoDocumentTableViewController.m in Sources */,
 				2DAD4C4E1AA624E100F496C3 /* AppDelegate.m in Sources */,
 				2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */,
 				2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */,

@@ -5,6 +5,8 @@
 //  Created by d on 3/3/15.
 //  Copyright (c) 2015 Damian Martinez. All rights reserved.
 //
+// Use this to display a single TodoDocument's todo items
+
 
 #import <UIKit/UIKit.h>
 
