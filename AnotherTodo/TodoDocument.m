@@ -17,8 +17,6 @@
 
 static NSString *FILE_TYPE = @"todoitems";
 static NSString *EMPTY_JSON = @"[]";
-// ERROR: "Initializer element is not a compile-time constant"
-//static NSData *EMPTY_DATA = [EMPTY_JSON dataUsingEncoding:NSUTF8StringEncoding];
 
 // loading document data happens in this callback
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
@@ -96,15 +94,17 @@ static NSString *EMPTY_JSON = @"[]";
 }
 
 
-// use a class method to encapsulate conversion -> to JSON data
+// use a class method to encapsulate conversion -> to JSON NSData
 + (NSData *)dataFromTodoItems:(NSArray*)items error:(NSError **)outError {
     if ([items count] > 0) {
-        // gather the items into an array of dicts
-        // TODO: do i need to convert these items or can json serialize my NSObject subclass?
-        //for (TodoItem *todoItem in self.todoItems) {
-        //}
+        // gather the items into an Array of Dictionaries
+        NSMutableArray *itemArray = [NSMutableArray new];
+        for (TodoItem *todoItem in items) {
+            [itemArray addObject:[todoItem dictionaryFromItem]];
+        }
+        // convert to JSON
         NSError *jsError;
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:items options:NSJSONWritingPrettyPrinted error:&jsError];
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:itemArray options:NSJSONWritingPrettyPrinted error:&jsError];
         
         if (jsError != nil) {
             *outError = jsError;

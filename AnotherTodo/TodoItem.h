@@ -17,4 +17,7 @@
 @property (readonly)NSDate *creationDate;
 @property (readonly)NSDate *completionDate;
 
+// a method which can convert to a hash (for JSON output)
+- (NSDictionary*)dictionaryFromItem;
+
 @end
