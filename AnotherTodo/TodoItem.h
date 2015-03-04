@@ -20,4 +20,13 @@
 // a method which can convert to a hash (for JSON output)
 - (NSDictionary*)dictionaryFromItem;
 
+
+// FIXME: should i have this method or an init method?  can i call an init method on an existing instance?
+//- (void)loadFromDictionary:(NSDictionary*)dataDict;
+
+// an init and class constructor method to allow setting from dictionary
+- (id)initWithItemName:(NSString*)itemName completed:(BOOL)completed completionDate:(NSDate*)completionDate NS_DESIGNATED_INITIALIZER;
+- (id)initWithDictionary:(NSDictionary*)dataDict;
++ (id)todoItemWithDictionary:(NSDictionary*)dataDict;
+
 @end
