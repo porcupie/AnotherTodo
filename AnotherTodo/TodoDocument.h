@@ -6,6 +6,12 @@
 //  Copyright (c) 2015 Damian Martinez. All rights reserved.
 //
 
+// To get this Document class to be loadable in my iOS application, I had to setup the Xcode project info.
+//  1. created a new exported UTI (com.example.AnotherTodo.yatodoList) that conforms to public.utf8-plain-text
+//  2. added a new Document Type for that UTI, made sure the app was registered as the Editor and the Owner of any yatodoList files
+// https://developer.apple.com/library/ios/qa/qa1587/_index.html
+// https://developer.apple.com/library/ios/documentation/DataManagement/Conceptual/DocumentBasedAppPGiOS/DocumentImplPreflight/DocumentImplPreflight.html
+
 #import <UIKit/UIKit.h>
 
 @interface TodoDocument : UIDocument 

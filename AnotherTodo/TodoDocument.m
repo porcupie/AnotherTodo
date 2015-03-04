@@ -45,7 +45,7 @@ static NSString *EMPTY_JSON = @"[]";
 }
 
 
-// use a class method to build the list of items from json data
+// use a class method to build the Array of TodoItems from JSON Data
 + (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError *__autoreleasing *)outError {
     NSMutableArray *convertedItems;
 
@@ -79,7 +79,6 @@ static NSString *EMPTY_JSON = @"[]";
     return convertedItems;
 }
 
-
 /*
  When a document is closed or when it is automatically saved, UIDocument sends 
  the document object a contentsForType:error: message. You must override this 
@@ -93,16 +92,18 @@ static NSString *EMPTY_JSON = @"[]";
     return self.documentData;
 }
 
+// FIXME: TODO: what about the filename and stuff ?
 
 // use a class method to encapsulate conversion -> to JSON NSData
 + (NSData *)dataFromTodoItems:(NSArray*)items error:(NSError **)outError {
     if ([items count] > 0) {
-        // gather the items into an Array of Dictionaries
+        // gather a Dictionary of each TodoItem into an Array
         NSMutableArray *itemArray = [NSMutableArray new];
         for (TodoItem *todoItem in items) {
             [itemArray addObject:[todoItem dictionaryFromItem]];
         }
-        // convert to JSON
+        
+        // convert Array to JSON for storage
         NSError *jsError;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:itemArray options:NSJSONWritingPrettyPrinted error:&jsError];
         
