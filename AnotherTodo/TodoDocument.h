@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TodoItem.h"
+
 @interface TodoDocument : UIDocument 
 
 // UIDocument has fileURL and localizedName and documentName already - do we need another?
@@ -26,6 +28,10 @@
 // FIXME: does this need to also be (nonatomic, strong) ?
 @property (nonatomic, strong) NSMutableArray *todoItems;
 
+// provide a convenience helper to add a TodoItem directly -- or do synthesized accessors get created already?
+- (void)addTodoItem:(TodoItem*)item;
+
+- (NSInteger)countOfTodoItems;
 
 + (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError **)outError;
 

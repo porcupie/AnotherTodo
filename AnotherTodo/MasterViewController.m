@@ -31,7 +31,12 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    
+    /*
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+     */
+    // do i need to do anything to switch the split view controllers list of controllers? a gui click somewhere?
+    self.todoDocumentController = (TodoDocumentTableViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +48,8 @@
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
+    // FIXME: TODO: add a new TodoDocument instead of an NSDate
+    // also - where does self.objects come from? are those the table cells?
     [self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -50,12 +57,17 @@
 
 #pragma mark - Segues
 
+// FIXME: TODO: for this and insertNewObject -- should we use a TodoDocument or just the filename/URL?
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        // 
+        // NSDate *object = self.objects[indexPath.row];
+        // DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        // [controller setDetailItem:object];
+        TodoDocument *object = self.objects[indexPath.row];
+        TodoDocumentTableViewController *controller = (TodoDocumentTableViewController *)[[segue destinationViewController] topViewController];
+        [controller setTodoDocument:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }

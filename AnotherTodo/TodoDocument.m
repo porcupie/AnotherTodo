@@ -18,6 +18,15 @@
 static NSString *FILE_TYPE = @"todoitems";
 static NSString *EMPTY_JSON = @"[]";
 
+// typed helper to add a todo to array
+- (void)addTodoItem:(TodoItem*)item {
+    [self.todoItems addObject:item];
+}
+
+- (NSInteger)countOfTodoItems {
+    return [self.todoItems count];
+}
+
 // loading document data happens in this callback
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
     // check if any data exists

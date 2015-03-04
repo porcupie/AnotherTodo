@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2DA8DC071AA7BA1800F0ED9A /* TodoDocumentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */; };
+		2DA8DC0A1AA7BCDE00F0ED9A /* AddTodoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DC091AA7BCDE00F0ED9A /* AddTodoItemViewController.m */; };
 		2DAD4C4B1AA624E100F496C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C4A1AA624E100F496C3 /* main.m */; };
 		2DAD4C4E1AA624E100F496C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C4D1AA624E100F496C3 /* AppDelegate.m */; };
 		2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C501AA624E100F496C3 /* MasterViewController.m */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		2DA8DC051AA7BA1800F0ED9A /* TodoDocumentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDocumentTableViewController.h; sourceTree = "<group>"; };
 		2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocumentTableViewController.m; sourceTree = "<group>"; };
+		2DA8DC081AA7BCD400F0ED9A /* AddTodoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTodoItemViewController.h; sourceTree = "<group>"; };
+		2DA8DC091AA7BCDE00F0ED9A /* AddTodoItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTodoItemViewController.m; sourceTree = "<group>"; };
 		2DAD4C451AA624E100F496C3 /* AnotherTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnotherTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAD4C491AA624E100F496C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DAD4C4A1AA624E100F496C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				2DAD4C5A1AA624E200F496C3 /* LaunchScreen.xib */,
 				2DAD4C581AA624E200F496C3 /* Images.xcassets */,
 				2DAD4C4C1AA624E100F496C3 /* AppDelegate.h */,
+				2DA8DC081AA7BCD400F0ED9A /* AddTodoItemViewController.h */,
+				2DA8DC091AA7BCDE00F0ED9A /* AddTodoItemViewController.m */,
 				2DAD4C4D1AA624E100F496C3 /* AppDelegate.m */,
 				2DA8DC051AA7BA1800F0ED9A /* TodoDocumentTableViewController.h */,
 				2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */,
@@ -248,6 +253,7 @@
 			files = (
 				2DA8DC071AA7BA1800F0ED9A /* TodoDocumentTableViewController.m in Sources */,
 				2DAD4C4E1AA624E100F496C3 /* AppDelegate.m in Sources */,
+				2DA8DC0A1AA7BCDE00F0ED9A /* AddTodoItemViewController.m in Sources */,
 				2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */,
 				2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */,
 				2DAD4C721AA62ADC00F496C3 /* README.md in Sources */,

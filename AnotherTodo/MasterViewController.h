@@ -9,12 +9,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TodoDocumentTableViewController.h"
+
 @class DetailViewController;
 
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+// want to keep reference to the Detail controller - in this case, our TodoDocumentTableViewController
+@property (strong, nonatomic) TodoDocumentTableViewController *todoDocumentController;
 
 @end
 

@@ -12,7 +12,10 @@
 
 @interface TodoDocumentTableViewController : UITableViewController
 
-// this controller will display one TodoDocument at a time ...
+// this controller will display one TodoDocument list at a time ...
 @property TodoDocument* todoDocument;
+
+// the UI will call this method to return from Add Item controller to the Document 
+- (IBAction)unwindToDocument:(UIStoryboardSegue*)segue;
 
 @end
