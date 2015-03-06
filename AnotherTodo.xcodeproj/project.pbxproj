@@ -53,7 +53,7 @@
 		2DAD4C611AA624E200F496C3 /* AnotherTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnotherTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAD4C661AA624E200F496C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DAD4C671AA624E200F496C3 /* AnotherTodoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnotherTodoTests.m; sourceTree = "<group>"; };
-		2DAD4C711AA62ADC00F496C3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2DAD4C711AA62ADC00F496C3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = AnotherTodo/README.md; sourceTree = "<group>"; };
 		2DAD4C731AA66F4200F496C3 /* TodoDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDocument.h; sourceTree = "<group>"; };
 		2DAD4C741AA66F4200F496C3 /* TodoDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocument.m; sourceTree = "<group>"; };
 		2DAD4C761AA6704300F496C3 /* TodoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoItem.h; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 		2DAD4C3C1AA624E100F496C3 = {
 			isa = PBXGroup;
 			children = (
+				2DAD4C711AA62ADC00F496C3 /* README.md */,
 				2DAD4C471AA624E100F496C3 /* AnotherTodo */,
 				2DAD4C641AA624E200F496C3 /* AnotherTodoTests */,
 				2DAD4C461AA624E100F496C3 /* Products */,
@@ -113,7 +114,6 @@
 				2DAD4C531AA624E100F496C3 /* DetailViewController.m */,
 				2DAD4C4F1AA624E100F496C3 /* MasterViewController.h */,
 				2DAD4C501AA624E100F496C3 /* MasterViewController.m */,
-				2DAD4C711AA62ADC00F496C3 /* README.md */,
 				2DAD4C731AA66F4200F496C3 /* TodoDocument.h */,
 				2DAD4C741AA66F4200F496C3 /* TodoDocument.m */,
 				2DAD4C761AA6704300F496C3 /* TodoItem.h */,
