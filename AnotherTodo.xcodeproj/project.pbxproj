@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D41A7701AAA4FAF00C938C6 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2D41A76F1AAA4FAF00C938C6 /* README.md */; };
 		2DA8DC071AA7BA1800F0ED9A /* TodoDocumentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */; };
 		2DA8DC0A1AA7BCDE00F0ED9A /* AddTodoItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA8DC091AA7BCDE00F0ED9A /* AddTodoItemViewController.m */; };
 		2DAD4C4B1AA624E100F496C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD4C4A1AA624E100F496C3 /* main.m */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D41A76F1AAA4FAF00C938C6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2DA8DC051AA7BA1800F0ED9A /* TodoDocumentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDocumentTableViewController.h; sourceTree = "<group>"; };
 		2DA8DC061AA7BA1800F0ED9A /* TodoDocumentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDocumentTableViewController.m; sourceTree = "<group>"; };
 		2DA8DC081AA7BCD400F0ED9A /* AddTodoItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTodoItemViewController.h; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		2DAD4C3C1AA624E100F496C3 = {
 			isa = PBXGroup;
 			children = (
+				2D41A76F1AAA4FAF00C938C6 /* README.md */,
 				2DAD4C471AA624E100F496C3 /* AnotherTodo */,
 				2DAD4C641AA624E200F496C3 /* AnotherTodoTests */,
 				2DAD4C461AA624E100F496C3 /* Products */,
@@ -254,6 +257,7 @@
 				2DAD4C781AA6704300F496C3 /* TodoItem.m in Sources */,
 				2DAD4C511AA624E100F496C3 /* MasterViewController.m in Sources */,
 				2DAD4C4B1AA624E100F496C3 /* main.m in Sources */,
+				2D41A7701AAA4FAF00C938C6 /* README.md in Sources */,
 				2DAD4C751AA66F4200F496C3 /* TodoDocument.m in Sources */,
 				2DAD4C541AA624E100F496C3 /* DetailViewController.m in Sources */,
 			);
