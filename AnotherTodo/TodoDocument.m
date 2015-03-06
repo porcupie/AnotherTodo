@@ -15,7 +15,7 @@
 
 @implementation TodoDocument
 
-static NSString *FILE_TYPE = @"todoitems";
+static NSString *FILE_EXTENSION = @"yatodoList";
 static NSString *EMPTY_JSON = @"[]";
 
 // typed helper to add a todo to array
@@ -24,8 +24,24 @@ static NSString *EMPTY_JSON = @"[]";
 }
 
 - (NSInteger)countOfTodoItems {
-    return [self.todoItems count];
+    if (self.todoItems && [self.todoItems respondsToSelector:@selector(count)]) {
+        return [self.todoItems count];
+    } else {
+        return 0;
+    }
 }
+
+// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
+- (NSURL*)localDocumentsDirectoryURL {
+    // what does this mean? does it get set to nil on every invocation? or does static mean only first time? 
+    static NSURL *localDocumentsDirectoryURL = nil;
+    if (localDocumentsDirectoryURL == nil) {
+        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        localDocumentsDirectoryURL = [NSURL fileURLWithPath:documentsDirectoryPath];
+    }
+    return localDocumentsDirectoryURL;
+}
+
 
 // loading document data happens in this callback
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {

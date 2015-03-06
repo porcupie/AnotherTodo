@@ -62,7 +62,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     // get the count of items from the document
-    return [self.todoDocument countOfTodoItems];
+    // what if we don't have a document yet?
+    if (self.todoDocument && [self.todoDocument respondsToSelector:@selector(countOfTodoItems)]) {
+        return [self.todoDocument countOfTodoItems];
+    } else {
+        return 0;
+    }
 }
 
 // display of each individual TableCell for a TodoItem

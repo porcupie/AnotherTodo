@@ -33,6 +33,10 @@
 
 - (NSInteger)countOfTodoItems;
 
+// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
+- (NSURL *)localDocumentsDirectoryURL;
+
+// class method to build new TodoItems from JSON Data
 + (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError **)outError;
 
 @end
