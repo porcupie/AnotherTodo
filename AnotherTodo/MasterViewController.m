@@ -49,8 +49,10 @@
         self.objects = [[NSMutableArray alloc] init];
     }
     // FIXME: TODO: add a new TodoDocument instead of an NSDate
+    TodoDocument* newDocument = [TodoDocument todoDocumentWithFilename:nil];  // can't the document constructor set the stuff up?
     // also - where does self.objects come from? are those the table cells?
-    [self.objects insertObject:[NSDate date] atIndex:0];
+    [self.objects insertObject:newDocument atIndex:0];
+    //[self.objects insertObject:[NSDate date] atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -86,8 +88,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TodoDocumentCell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    TodoDocument *object = self.objects[indexPath.row];
+    // set the text - use filename
+    cell.textLabel.text = [object localizedName];
+    
+    // what about subtitle? - count items - does this require to keep loaded document in mem?
+    // cell.detailTextLabel.text = [NSString stringWithFormat:@"%d item(s)", [object.todoItems count]];
+    
     return cell;
 }
 

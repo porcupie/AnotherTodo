@@ -21,15 +21,26 @@
     // expecting to unwind from the Add item controller, so get it
     AddTodoItemViewController* addItemController = [segue sourceViewController];
     
-    // figure out if we need to store a newly built item
-    TodoItem *newItem = addItemController.todoItem;
-    if (newItem != nil) {
-        [self.todoDocument addTodoItem:newItem];
-        // reload view
-        [self.tableView reloadData];
+    if (self.todoDocument) {
+        // figure out if we need to store a newly built item
+        TodoItem *newItem = addItemController.todoItem;
+        NSLog(@"Preparing to add a TodoItem to the list of items in Document: %@", newItem);
+        if (newItem != nil) {
+            //[self.todoDocument addTodoItem:newItem];
+            [self.todoDocument.todoItems addObject:newItem];
+            // reload view
+            [self.tableView reloadData];
+        }
+        NSLog(@"New list of TodoItem items in Document: %@", self.todoDocument.todoItems);
+    }
+    else {
+        NSLog(@"No Document available: %@", self.todoDocument);
     }
     
 }
+
+// TODO: what if i just set the filename for saving using timestamp, but then set self.todoDocument.localizedName = @"Todo"
+
 
 // called to (re)display the document view
 - (void)viewDidLoad {
@@ -38,14 +49,15 @@
     // setup the items from the document?
     // what if no document?
     if (self.todoDocument == nil) {
-        // FIXME: TODO: how to create a new document?
-        // self.todoDocument = ...
+        // FIXME: TODO: encapsulate how to create a new document --
     }
     
     //
     
     // does the other controller make new documents for us?
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

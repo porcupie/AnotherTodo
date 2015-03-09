@@ -21,7 +21,7 @@
 // UIDocument has fileURL and localizedName and documentName already - do we need another?
 //@property NSString *friendlyName;
 
-// do we need to temp store the data from file?
+// temp store the data from file -- is this needed?
 @property (nonatomic, strong) NSData* documentData;
 
 // keep a list of todoItems
@@ -33,10 +33,15 @@
 
 - (NSInteger)countOfTodoItems;
 
-// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
-- (NSURL *)localDocumentsDirectoryURL;
-
 // class method to build new TodoItems from JSON Data
 + (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError **)outError;
+
+// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
++ (NSURL *)LocalDocumentsDirectoryURL;
+
++ (NSString*)DefaultNewFilename;
++ (NSURL*)DefaultDocumentURLForFilename:(NSString*)filename;
+
++ (id)todoDocumentWithFilename:(NSString*)filename;
 
 @end

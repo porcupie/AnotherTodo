@@ -40,6 +40,7 @@
     if (sender != self.saveButton) return;
     
     if (self.textField.text.length > 0) {
+        NSLog(@"Preparing to create new TodoItem with text: %@", self.textField.text);
         self.todoItem = [[TodoItem alloc] init];
         self.todoItem.itemName = self.textField.text;
         self.todoItem.completed = NO;

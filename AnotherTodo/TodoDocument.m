@@ -31,17 +31,6 @@ static NSString *EMPTY_JSON = @"[]";
     }
 }
 
-// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
-- (NSURL*)localDocumentsDirectoryURL {
-    // what does this mean? does it get set to nil on every invocation? or does static mean only first time? 
-    static NSURL *localDocumentsDirectoryURL = nil;
-    if (localDocumentsDirectoryURL == nil) {
-        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        localDocumentsDirectoryURL = [NSURL fileURLWithPath:documentsDirectoryPath];
-    }
-    return localDocumentsDirectoryURL;
-}
-
 
 // loading document data happens in this callback
 - (BOOL)loadFromContents:(id)contents ofType:(NSString *)typeName error:(NSError *__autoreleasing *)outError {
@@ -72,7 +61,7 @@ static NSString *EMPTY_JSON = @"[]";
 
 // use a class method to build the Array of TodoItems from JSON Data
 + (NSMutableArray *)todoItemsFromDocumentData:(NSData *)data error:(NSError *__autoreleasing *)outError {
-    NSMutableArray *convertedItems;
+    NSMutableArray *convertedItems = [[NSMutableArray alloc] init];
 
     if ([data length] > 0) {
         // first get an array of hashes for what is in the json
@@ -88,7 +77,6 @@ static NSString *EMPTY_JSON = @"[]";
         }
         else {
             // next, convert each hash into a TodoItem ...
-            convertedItems = [[NSMutableArray alloc] init];
             for (NSDictionary *dataItem in tempItems) {
                 TodoItem *todoItem = [TodoItem new];
                 // generic key-assignment loop
@@ -147,5 +135,59 @@ static NSString *EMPTY_JSON = @"[]";
     }
 }
 
+// not sure if class methods is best, but wanted to use in my class constructor
+
+// Listing 4-1  Getting a URL to the application’s Documents directory in the local sandbox
+// from UIDocument guide: https://developer.apple.com/library/ios/documentation/DataManagement/Conceptual/DocumentBasedAppPGiOS/ManageDocumentLifeCycle/ManageDocumentLifeCycle.html#//apple_ref/doc/uid/TP40011149-CH4-SW7
+//
++ (NSURL*)LocalDocumentsDirectoryURL {
+    // what does this mean? does it get set to nil on every invocation? or does static mean only first time? 
+    static NSURL *localDocumentsDirectoryURL = nil;
+    if (localDocumentsDirectoryURL == nil) {
+        NSString *documentsDirectoryPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        localDocumentsDirectoryURL = [NSURL fileURLWithPath:documentsDirectoryPath];
+    }
+    return localDocumentsDirectoryURL;
+}
+
+// generate a simple (unique(?)) filename - using timestamp
++ (NSString*)DefaultNewFilename {
+    return [NSString stringWithFormat:@"%@", [NSDate date]];
+}
+
+// create new file url by appending filename or DefaultNewFilename to local documents URL
++ (NSURL*)DefaultDocumentURLForFilename:(NSString*)filename {
+    NSURL *base = [self LocalDocumentsDirectoryURL];
+    if (filename && [filename length] > 0) {
+        return [base URLByAppendingPathComponent:filename];
+    }
+    else {
+        return [base URLByAppendingPathComponent:[self DefaultNewFilename]];
+    }
+}
+
+// allocate and create new Document
++ (id)todoDocumentWithFilename:(NSString *)filename {
+    NSURL* newDocURL = [self DefaultDocumentURLForFilename:filename];
+    
+    // alloc and init document
+    TodoDocument *newDoc = [[TodoDocument alloc] initWithFileURL:newDocURL];
+    
+    return newDoc;
+}
+
+
+// TODO: do we need to override init so that it creates a new mutable array for the todoItems?
+- (id)initWithFileURL:(NSURL *)url {
+    self = [super initWithFileURL:url];
+    
+    // set up a simple display name? -- READONLY property :/
+    //self.localizedName = @"Todo";
+    
+    // set up an empty list for todoItems
+    self.todoItems = [NSMutableArray new];
+    
+    return self;
+}
 
 @end
